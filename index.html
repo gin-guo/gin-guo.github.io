@@ -343,81 +343,145 @@
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
-        <div class="row">
+        <!-- Recent Projects container -->
+        <div id="recent-projects" class="row"></div>
 
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="second-hand electronics marketplace app" src="/assets/img/project-electronics.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Second-hand Electronics Marketplace<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A web application to connect consumers to second-hand electronics.  
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> HTML, CSS, JavaScript, CockroachDB, Python, Pandas</li>
-                  <li>Connect consumers to second-hand electronics via web application.</li>
-                  <li>Scraps the web and uses NLP to clean up device information.</li>
-                  <li>Won first place in ToHacks with project awards from Genesys and Deloitte.</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit " href="https://gin-guo.github.io/butterfly-labs/" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/gin-guo/TOHacks-2022"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="lol win predictor model" src="/assets/img/project-league-of-legend.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">League of Legends Win Predictor<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A ML model to predict the outcome of a League of Legends match.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Python, Pandas, TensorFlow </li>
-                  <li>Feed-forward neural network to predict the outcome of a League of Legends match.</li>
-                  <li>Trained and evaluated the model using historical match data from Riot Games API.</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit " href="https://github.com/gin-guo/LoL-Win-Predictor" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/gin-guo/LoL-Win-Predictor"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ************* -->
+        <!-- Load More button -->
+        <div class="row center">
+          <button id="load-more-projects"
+                  class="btn waves-effect waves-light teal"
+                  type="button">Load More</button>
         </div>
       </div>
     </section>
+
+    <script>
+      const projects = [
+        {
+          title: "Second-hand Electronics Marketplace",
+          img: "/assets/img/project-electronics.png",
+          alt: "second-hand electronics marketplace app",
+          desc: "A web application to connect consumers to second-hand electronics.",
+          tools: "HTML, CSS, JavaScript, CockroachDB, Python, Pandas",
+          bullets: [
+            "Connect consumers to second-hand electronics via web application.",
+            "Scrapes the web and uses NLP to clean up device information.",
+            "Won first place in ToHacks with project awards from Genesys and Deloitte."
+          ],
+          demo: "https://gin-guo.github.io/butterfly-labs/",
+          source: "https://github.com/gin-guo/TOHacks-2022"
+        },
+        {
+          title: "League of Legends Win Predictor",
+          img: "/assets/img/project-league-of-legend.png",
+          alt: "lol win predictor model",
+          desc: "A ML model to predict the outcome of a League of Legends match.",
+          tools: "Python, Pandas, TensorFlow",
+          bullets: [
+            "Feed-forward neural network to predict the outcome of a League of Legends match.",
+            "Trained and evaluated the model using historical match data from Riot Games API."
+          ],
+          demo: "https://github.com/gin-guo/LoL-Win-Predictor",
+          source: "https://github.com/gin-guo/LoL-Win-Predictor"
+        },
+        {
+          title: "Remy's Quest Arcade Game",
+          img: "/assets/img/project-ice-cold-beer.png",
+          alt: "re-envision of arcade game Ice Cold Beer",
+          desc: "A mechatronic display coded in Arduino inspired by Ice Cold Beer",
+          tools: "Arduino, TinkerCAD, 3D Printing, Laser Cutting",
+          bullets: [
+            "Designed and prototyped mechatronic interactive displays around the University of Toronto campus for students.",
+            "Led ECE teams to design & debug software programs using Arduino for ESP32 with Github for revision control."
+          ],
+          demo: "https://github.com/Jan729/Spark2020-2021",
+          source: "https://github.com/Jan729/Spark2020-2021"
+        },
+        {
+          title: "Evaluating LLM-Judges",
+          img: "/assets/img/project-llm-evaluation.png",
+          alt: "evaluating llm-judges report",
+          desc: "Exploring the robustness of LLM-based judges in essay evaluation.",
+          tools: "Python, Jypyter Notebook",
+          bullets: [
+            "Implemented local evaluation pipeline utilizing open-source small LLMs from Huggingface.",
+            "Studies how different prompt-engineered essays impact LLM scoring.",
+            "Generated synthetic data for data augmentation using GPT-3.5."
+          ],
+          demo: "https://github.com/gin-guo/breaking-bias",
+          source: "https://github.com/gin-guo/breaking-bias"
+        }
+      ];
+
+      let index = 0;
+      const container = document.getElementById("recent-projects");
+      const loadBtn = document.getElementById("load-more-projects");
+
+      function renderProject(proj) {
+        const html = `
+          <div class="col s12 m6 l4">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img src="${proj.img}" alt="${proj.alt}" class="activator" style="height:100%; width:100%">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">
+                  ${proj.title}<i class="mdi-navigation-more-vert right"></i>
+                </span>
+                <p>${proj.desc}</p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text">
+                  <small>Accomplishments</small><i class="mdi-navigation-close right"></i>
+                </span>
+                <ul>
+                  <li><b>Tools:</b> ${proj.tools}</li>
+                  ${proj.bullets.map(b => `<li>${b}</li>`).join("")}
+                </ul>
+                <div class="card-action">
+                  <a href="${proj.demo}" target="_blank"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped">
+                    <i class="fa fa-external-link"></i>
+                  </a>
+                  <a href="${proj.source}" target="_blank"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped">
+                    <i class="fa fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        container.insertAdjacentHTML("beforeend", html);
+      }
+
+      function loadInitial() {
+        if (projects.length > 0) {
+          renderProject(projects[0]);
+          index = 1;
+          if (index >= projects.length) {
+            loadBtn.disabled = true;
+            loadBtn.textContent = "No more projects";
+          }
+        } else {
+          loadBtn.style.display = "none";
+          container.innerHTML = "<p>No projects to show.</p>";
+        }
+      }
+
+      function loadNextProject() {
+        if (index < projects.length) {
+          renderProject(projects[index]);
+          index++;
+          if (index >= projects.length) {
+            loadBtn.disabled = true;
+            loadBtn.textContent = "No more projects";
+          }
+        }
+      }
+
+      loadInitial();
+      loadBtn.addEventListener("click", loadNextProject);
+    </script>
 
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">
