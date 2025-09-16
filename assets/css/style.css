@@ -194,13 +194,8 @@ nav i {
 
 /* main */
 
-/* main {
-  background: url(../../assets/img/bg.png) repeat;
-  padding-left: 190px;
-} */
-
 main {
-  background: url(../../assets/img/bg.png) repeat;
+  background: rgb(156, 205, 255) repeat;
   padding-left: 190px;
 }
 
@@ -320,7 +315,7 @@ h3 {
 } */
 
 #intro.section {
-  background: #a7ffeb repeat;
+  background: rgb(156, 205, 255) repeat;
   position: relative;
 }
 
@@ -356,7 +351,7 @@ h3 {
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(118, 110, 241);
   height: 100%;
   left: 0;
   position: absolute;
